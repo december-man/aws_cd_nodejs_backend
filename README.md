@@ -12,7 +12,7 @@
 
 (Shortcut: https://d172ijz47ga3e3.cloudfront.net/)
 
-#### SWAGGER: TO DO
+#### SWAGGER: https://app.swaggerhub.com/apis/december-man/Product-Service/1.0.0
 
 
 
