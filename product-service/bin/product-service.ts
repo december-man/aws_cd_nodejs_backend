@@ -12,7 +12,7 @@ const app = new cdk.App();
 const stack = new cdk.Stack(app, 'ProductServiceStack', {
   env: { region : 'eu-central-1' },
   synthesizer: new cdk.DefaultStackSynthesizer({
-    fileAssetsBucketName: 'awscdrsschooltask3',
+    fileAssetsBucketName: 'awscdrsschooltask3lambda',
     bucketPrefix: '',
   })
 });

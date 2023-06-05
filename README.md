@@ -5,7 +5,7 @@
   1. ~~Create a lambda function called getProductsList under the same AWS CDK Stack file of Product Service which will be triggered by the HTTP GET method.~~
   2. ~~The requested URL should be /products.~~
   3. ~~The response from the lambda should be a full array of products (mock data should be used - this mock data should be stored in Product Service).~~
-  4. This endpoint should be integrated with Frontend app for PLP (Product List Page) representation.
+  4. ~~This endpoint should be integrated with Frontend app for PLP (Product List Page) representation.~~
 
 #### Task 3.2
 
@@ -32,9 +32,12 @@
 #### Product Service API: https://x43rdjvcy0.execute-api.eu-central-1.amazonaws.com
 
  /products: https://x43rdjvcy0.execute-api.eu-central-1.amazonaws.com/products
- /products/{productId}: https://x43rdjvcy0.execute-api.eu-central-1.amazonaws.com/products/6 (Id is a counter from 1 to 7)
+ /products/{productId}: https://x43rdjvcy0.execute-api.eu-central-1.amazonaws.com/products/6 
+ (Id is a counter from 1 to 7)
 
-#### Link to FE PR: TO DO
+#### Link to FE PR: https://github.com/december-man/nodejs-aws-shop-react/pull/2
+
+(Shortcut: https://d172ijz47ga3e3.cloudfront.net/)
 
 #### SWAGGER: TO DO
 
