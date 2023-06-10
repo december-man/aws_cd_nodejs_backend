@@ -11,16 +11,21 @@ const app = new cdk.App();
 
 const stack = new cdk.Stack(app, 'ProductServiceStack', {
   env: { region : 'eu-central-1' },
-  synthesizer: new cdk.DefaultStackSynthesizer({
-    fileAssetsBucketName: 'awscdrsschooltask3lambda',
-    bucketPrefix: '',
-  })
+//  synthesizer: new cdk.DefaultStackSynthesizer({
+//    fileAssetsBucketName: 'awscdrsschooltask3lambda',
+//    bucketPrefix: '',
+//  })
 });
 
 const sharedLambdaProps: Partial<NodejsFunctionProps> = {
   runtime: lambda.Runtime.NODEJS_18_X,
   environment: {
     PRODUCT_AWS_REGION: process.env.PRODUCT_AWS_REGION!,
+    PG_HOST: process.env.PG_HOST,
+    PG_PORT: process.env.PG_PORT,
+    PG_DATABASE: process.env.PG_DATABASE,
+    PG_USERNAME: process.env.PG_USERNAME,
+    PG_PASSWORD: process.env.PG_PASSWORD, 
   }
 };
 
@@ -28,12 +33,6 @@ const getProductsList = new NodejsFunction(stack, 'GetProductsListLambda', {
   ...sharedLambdaProps,
   functionName: 'getProductsList',
   entry: 'source/lambda_handlers/getProductsList.ts',
-});
-
-const getProductsById = new NodejsFunction(stack, 'GetProductsByIdLambda', {
-  ...sharedLambdaProps,
-  functionName: 'getProductsById',
-  entry: 'source/lambda_handlers/getProductsById.ts',
 });
 
 const api = new apiGateway.HttpApi(stack, 'ProductApi', {
@@ -47,11 +46,5 @@ const api = new apiGateway.HttpApi(stack, 'ProductApi', {
 api.addRoutes({
   integration: new HttpLambdaIntegration('GetProductsListIntegration', getProductsList),
   path: '/products',
-  methods: [apiGateway.HttpMethod.GET],
-});
-
-api.addRoutes({
-  integration: new HttpLambdaIntegration('GetProductsByIdIntegration', getProductsById),
-  path: '/products/{productId}',
   methods: [apiGateway.HttpMethod.GET],
 });
