@@ -1,5 +1,5 @@
 import { buildResponse } from '../utils';
-import { MockStoreData } from '../mock_store_data'
+import pg from './index';
 
 export const handler = async (event: any) => {
   try {
@@ -7,15 +7,12 @@ export const handler = async (event: any) => {
     console.log("echo getProductsById", event);
 
     const { productId } = event.pathParameters;
-    
-    const item = MockStoreData.filter(
-      (item: { id: any }) => item.id === productId
-    );
+    const product = await pg('items').where('id', productId).select('*');
 
-    if (item && item.length > 0) {
-      return buildResponse(200, {item: item[0],});
+    if (product && product.length > 0) {
+      return buildResponse(200, product);
     } else {
-      return buildResponse(404, {message: "PRODUCT NOT FOUND",});
+      return buildResponse(404, {message: "PRODUCT NOT FOUND"});
     }
 
   }

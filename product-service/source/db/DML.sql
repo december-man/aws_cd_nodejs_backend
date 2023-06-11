@@ -1,26 +1,9 @@
 -- Aliaksei's not-so-black market data filler
 
--- DDL part (creating tables in the postgresql database)
-
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
-CREATE TABLE IF NOT EXISTS products (
-	id uuid NOT NULL DEFAULT uuid_generate_v4() PRIMARY KEY,
-	title VARCHAR(500) NOT NULL UNIQUE,
-	description VARCHAR(10000), 
-	price INTEGER
-);
-
-CREATE TABLE IF NOT EXISTS stocks (
-	product_id uuid NOT NULL DEFAULT uuid_generate_v4(),
-	"count" INTEGER NOT NULL,
-	CONSTRAINT FK_stocks_products_id FOREIGN KEY (product_id) REFERENCES products (id)
-);
-
 -- DML part (inserting data)
 -- Writing A function to add data based on the user input:
 
-DROP FUNCTION IF EXISTS insert_data(TEXT,TEXT,INT); -- debugging
+DROP FUNCTION IF EXISTS insert_data(TEXT, TEXT, INT, INT); -- debugging
 
 CREATE OR REPLACE FUNCTION insert_data(
 IN 	product_title 			TEXT,
@@ -44,7 +27,7 @@ BEGIN
 		RAISE EXCEPTION '% is already in the products table!', UPPER(product_title);
 	END IF;
 END; 
-$$ 	LANGUAGE plpgsql;
+$$ 	LANGUAGE plpgsql VOLATILE;
 
 
 SELECT * FROM insert_data('Mock Data Generator EVO 1', 'Perfect for cases like this!', 100, 2);
@@ -58,10 +41,4 @@ SELECT * FROM insert_data('Its raining men', 'Hallelujah', 666, 1);
 SELECT * FROM insert_data('ETH smart contract backdoors', 'Vitalik cannot be trusted', 666, 1);
 SELECT * FROM insert_data('Faraday Cage', 'Portable version!', 15, 560);
 SELECT * FROM insert_data('Tesla Model X bluetooth hijack kit', 'Easy prey!', 422, 11);
-
-
--- check yourself:
-SELECT * FROM stocks;
-SELECT * FROM products;
-
 
