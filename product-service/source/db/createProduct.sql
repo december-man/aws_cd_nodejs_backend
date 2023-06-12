@@ -3,10 +3,7 @@
 DROP FUNCTION IF EXISTS createProduct(TEXT, TEXT, INT, INT); -- debugging
 
 CREATE OR REPLACE FUNCTION createProduct(
-IN 	product_title 			TEXT,
-		description 			TEXT,
-		price						INTEGER,
-		"count"					INTEGER
+IN product_title TEXT, description TEXT, price INTEGER, "count" INTEGER
 ) RETURNS VOID
 AS $$
 DECLARE

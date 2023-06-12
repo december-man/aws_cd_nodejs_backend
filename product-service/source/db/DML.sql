@@ -6,10 +6,7 @@
 DROP FUNCTION IF EXISTS insert_data(TEXT, TEXT, INT, INT); -- debugging
 
 CREATE OR REPLACE FUNCTION insert_data(
-IN 	product_title 	TEXT,
-		description 	TEXT,
-		price		INTEGER,
-		"count" 	INTEGER
+IN	product_title TEXT, description TEXT, price INTEGER, "count" INTEGER
 ) RETURNS VOID
 AS $$
 DECLARE
