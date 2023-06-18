@@ -1,4 +1,4 @@
-## AWS Cloud Developer Rsschool product service backend (Aliaksei's 'Not so Black' Market)
+## AWS Cloud Developer Rsschool Backend (Aliaksei's 'Not so Black' Market)
 
 ## Links:
 
@@ -8,9 +8,9 @@
  /products/{productId}: https://x43rdjvcy0.execute-api.eu-central-1.amazonaws.com/products/6 
  (Id is a counter from 1 to 7)
 
-#### Link to FE PR: https://github.com/december-man/nodejs-aws-shop-react/pull/2
+#### Link to FE: https://github.com/december-man/nodejs-aws-shop-react/
 
-(Shortcut: https://d172ijz47ga3e3.cloudfront.net/)
+FE on cloudfront: https://d172ijz47ga3e3.cloudfront.net/
 
 #### SWAGGER: https://app.swaggerhub.com/apis/december-man/Product-Service/1.0.0
 

@@ -1,0 +1,486 @@
+timestamp,message
+1687112819746,"INIT_START Runtime Version: nodejs:18.v7	Runtime Version ARN: arn:aws:lambda:eu-central-1::runtime:26e9402591d9c467cdcc7355f843d61968f36ecb6e9ef5ab253cc21163343275
+"
+1687112820280,"START RequestId: d376a0ee-9a0e-4aa5-a9e1-0ca1625aee61 Version: $LATEST
+"
+1687112820374,"2023-06-18T18:27:00.374Z	d376a0ee-9a0e-4aa5-a9e1-0ca1625aee61	INFO	Received event: {
+  ""Records"": [
+    {
+      ""eventVersion"": ""2.1"",
+      ""eventSource"": ""aws:s3"",
+      ""awsRegion"": ""eu-central-1"",
+      ""eventTime"": ""2023-06-18T18:26:57.944Z"",
+      ""eventName"": ""ObjectCreated:Put"",
+      ""userIdentity"": {
+        ""principalId"": ""AWS:AROAWJME3SB2KYGONNGBD:importProductsFile""
+      },
+      ""requestParameters"": {
+        ""sourceIPAddress"": ""37.215.21.90""
+      },
+      ""responseElements"": {
+        ""x-amz-request-id"": ""97BTQQ1A5S3PYRK6"",
+        ""x-amz-id-2"": ""ghxjGLcYGGrYOSkS7QFwvxoINCk5DtyfOEmDXW2jqwIY2VJSxuFAPq3hCKW9FB16pyUgtsSc+KcCf5PeHvPYN0X5mgAWqt2T""
+      },
+      ""s3"": {
+        ""s3SchemaVersion"": ""1.0"",
+        ""configurationId"": ""arn:aws:cloudformation:eu-central-1:432459714676:stack/ImportServiceStack/b0516850-0b6d-11ee-b202-0247d39f1d58--8850646581874539411"",
+        ""bucket"": {
+          ""name"": ""awscd-import-service"",
+          ""ownerIdentity"": {
+            ""principalId"": ""ALIL5H36DH3JV""
+          },
+          ""arn"": ""arn:aws:s3:::awscd-import-service""
+        },
+        ""object"": {
+          ""key"": ""uploaded/groups.csv"",
+          ""size"": 875082,
+          ""eTag"": ""9c24aae59b7242d4281608c0cea34719"",
+          ""sequencer"": ""00648F4C71CAB6F0FF""
+        }
+      }
+    }
+  ]
+}
+"
+1687112820393,"2023-06-18T18:27:00.393Z	d376a0ee-9a0e-4aa5-a9e1-0ca1625aee61	INFO	Filename:  uploaded/groups.csv
+"
+1687112820974,"END RequestId: d376a0ee-9a0e-4aa5-a9e1-0ca1625aee61
+"
+1687112820974,"REPORT RequestId: d376a0ee-9a0e-4aa5-a9e1-0ca1625aee61	Duration: 693.54 ms	Billed Duration: 694 ms	Memory Size: 128 MB	Max Memory Used: 101 MB	Init Duration: 533.11 ms	
+"
+1687113088148,"START RequestId: a9380737-f989-4987-bd28-8827433c5cf5 Version: $LATEST
+"
+1687113090979,"2023-06-18T18:31:30.979Z	d376a0ee-9a0e-4aa5-a9e1-0ca1625aee61	INFO	[
+  { 'id"";""grp': '1206794;""B""' },
+  { 'id"";""grp': '331024;""B""' },
+  { 'id"";""grp': '1733498;""A""' },
+  { 'id"";""grp': '161574;""B""' },
+  { 'id"";""grp': '168443;""B""' },
+  { 'id"";""grp': '172064;""A""' },
+  { 'id"";""grp': '176564;""B""' },
+  { 'id"";""grp': '199038;""B""' },
+  { 'id"";""grp': '214114;""A""' },
+  { 'id"";""grp': '227004;""A""' },
+  { 'id"";""grp': '227636;""A""' },
+  { 'id"";""grp': '228827;""B""' },
+  { 'id"";""grp': '2030162;""B""' },
+  { 'id"";""grp': '247727;""A""' },
+  { 'id"";""grp': '4849208;""B""' },
+  { 'id"";""grp': '258735;""A""' },
+  { 'id"";""grp': '263539;""A""' },
+  { 'id"";""grp': '284740;""B""' },
+  { 'id"";""grp': '305188;""B""' },
+  { 'id"";""grp': '317817;""B""' },
+  { 'id"";""grp': '326585;""B""' },
+  { 'id"";""grp': '330008;""B""' },
+  { 'id"";""grp': '330084;""B""' },
+  { 'id"";""grp': '334869;""B""' },
+  { 'id"";""grp': '336108;""A""' },
+  { 'id"";""grp': '339257;""B""' },
+  { 'id"";""grp': '344500;""B""' },
+  { 'id"";""grp': '3377240;""B""' },
+  { 'id"";""grp': '359996;""B""' },
+  { 'id"";""grp': '358432;""B""' },
+  { 'id"";""grp': '366452;""A""' },
+  { 'id"";""grp': '367082;""B""' },
+  { 'id"";""grp': '373987;""B""' },
+  { 'id"";""grp': '379314;""B""' },
+  { 'id"";""grp': '384360;""A""' },
+  { 'id"";""grp': '386219;""B""' },
+  { 'id"";""grp': '390706;""A""' },
+  { 'id"";""grp': '4739292;""A""' },
+  { 'id"";""grp': '1246810;""B""' },
+  { 'id"";""grp': '396434;""B""' },
+  { 'id"";""grp': '396428;""B""' },
+  { 'id"";""grp': '409667;""B""' },
+  { 'id"";""grp': '179874;""A""' },
+  { 'id"";""grp': '421535;""A""' },
+  { 'id"";""grp': '422500;""B""' },
+  { 'id"";""grp': '424705;""B""' },
+  { 'id"";""grp': '1753212;""B""' },
+  { 'id"";""grp': '1754951;""B""' },
+  { 'id"";""grp': '431788;""B""' },
+  { 'id"";""grp': '432561;""A""' },
+  { 'id"";""grp': '433904;""A""' },
+  { 'id"";""grp': '438792;""B""' },
+  { 'id"";""grp': '438953;""B""' },
+  { 'id"";""grp': '439858;""B""' },
+  { 'id"";""grp': '439833;""A""' },
+  { 'id"";""grp': '443756;""B""' },
+  { 'id"";""grp': '501039;""B""' },
+  { 'id"";""grp': '668490;""B""' },
+  { 'id"";""grp': '454882;""B""' },
+  { 'id"";""grp': '454226;""B""' },
+  { 'id"";""grp': '456232;""B""' },
+  { 'id"";""grp': '456480;""B""' },
+  { 'id"";""grp': '459905;""B""' },
+  { 'id"";""grp': '461876;""A""' },
+  { 'id"";""grp': '462401;""A""' },
+  { 'id"";""grp': '465133;""B""' },
+  { 'id"";""grp': '817089;""B""' },
+  { 'id"";""grp': '470070;""A""' },
+  { 'id"";""grp': '470234;""B""' },
+  { 'id"";""grp': '470335;""B""' },
+  { 'id"";""grp': '1736112;""B""' },
+  { 'id"";""grp': '361254;""B""' },
+  { 'id"";""grp': '478002;""B""' },
+  { 'id"";""grp': '486887;""B""' },
+  { 'id"";""grp': '486443;""B""' },
+  { 'id"";""grp': '486202;""B""' },
+  { 'id"";""grp': '488799;""B""' },
+  { 'id"";""grp': '2111296;""A""' },
+  { 'id"";""grp': '490600;""B""' },
+  { 'id"";""grp': '789937;""A""' },
+  { 'id"";""grp': '1736500;""B""' },
+  { 'id"";""grp': '1808511;""B""' },
+  { 'id"";""grp': '330450;""A""' },
+  { 'id"";""grp': '505070;""B""' },
+  { 'id"";""grp': '373430;""A""' },
+  { 'id"";""grp': '1071598;""A""' },
+  { 'id"";""grp': '467003;""A""' },
+  { 'id"";""grp': '516016;""B""' },
+  { 'id"";""grp': '1726968;""B""' },
+  { 'id"";""grp': '520212;""B""' },
+  { 'id"";""grp': '521438;""B""' },
+  { 'id"";""grp': '522419;""B""' },
+  { 'id"";""grp': '1624984;""B""' },
+  { 'id"";""grp': '523470;""B""' },
+  { 'id"";""grp': '523890;""B""' },
+  { 'id"";""grp': '372694;""B""' },
+  { 'id"";""grp': '528630;""B""' },
+  { 'id"";""grp': '1013606;""B""' },
+  { 'id"";""grp': '286689;""B""' },
+  { 'id"";""grp': '5382347;""B""' },
+  ... 74476 more items
+]
+"
+1687113091239,"2023-06-18T18:31:31.239Z a9380737-f989-4987-bd28-8827433c5cf5 Task timed out after 3.09 seconds
+
+"
+1687113091239,"END RequestId: a9380737-f989-4987-bd28-8827433c5cf5
+"
+1687113091239,"REPORT RequestId: a9380737-f989-4987-bd28-8827433c5cf5	Duration: 3091.15 ms	Billed Duration: 3000 ms	Memory Size: 128 MB	Max Memory Used: 112 MB	
+"
+1687113091345,"INIT_START Runtime Version: nodejs:18.v7	Runtime Version ARN: arn:aws:lambda:eu-central-1::runtime:26e9402591d9c467cdcc7355f843d61968f36ecb6e9ef5ab253cc21163343275
+"
+1687113146440,"START RequestId: a9380737-f989-4987-bd28-8827433c5cf5 Version: $LATEST
+"
+1687113146498,"2023-06-18T18:32:26.498Z	a9380737-f989-4987-bd28-8827433c5cf5	INFO	Received event: {
+  ""Records"": [
+    {
+      ""eventVersion"": ""2.1"",
+      ""eventSource"": ""aws:s3"",
+      ""awsRegion"": ""eu-central-1"",
+      ""eventTime"": ""2023-06-18T18:31:26.305Z"",
+      ""eventName"": ""ObjectCreated:Put"",
+      ""userIdentity"": {
+        ""principalId"": ""AWS:AROAWJME3SB2KYGONNGBD:importProductsFile""
+      },
+      ""requestParameters"": {
+        ""sourceIPAddress"": ""37.215.21.90""
+      },
+      ""responseElements"": {
+        ""x-amz-request-id"": ""7GRFJSFFQ1Y42DKF"",
+        ""x-amz-id-2"": ""KAZkZ9WefIYuRASrRjyw1zA1Jei2PYLKRVMZ8R/wL+H4yWLFKYKjDS2mLOMiKTAr3GW2rQVA/DA/WGpPj1mRs9RoBuYOPz8Y""
+      },
+      ""s3"": {
+        ""s3SchemaVersion"": ""1.0"",
+        ""configurationId"": ""arn:aws:cloudformation:eu-central-1:432459714676:stack/ImportServiceStack/b0516850-0b6d-11ee-b202-0247d39f1d58--8850646581874539411"",
+        ""bucket"": {
+          ""name"": ""awscd-import-service"",
+          ""ownerIdentity"": {
+            ""principalId"": ""ALIL5H36DH3JV""
+          },
+          ""arn"": ""arn:aws:s3:::awscd-import-service""
+        },
+        ""object"": {
+          ""key"": ""uploaded/checks.csv"",
+          ""size"": 7764,
+          ""eTag"": ""d842aac860d220041455dc4c33cff9f0"",
+          ""sequencer"": ""00648F4D7E44132C04""
+        }
+      }
+    }
+  ]
+}
+"
+1687113146498,"2023-06-18T18:32:26.498Z	a9380737-f989-4987-bd28-8827433c5cf5	INFO	Filename:  uploaded/checks.csv
+"
+1687113147200,"2023-06-18T18:32:27.200Z	a9380737-f989-4987-bd28-8827433c5cf5	INFO	[
+  { 'student_id"";""rev': '1627;990.0' },
+  { 'student_id"";""rev': '3185;690.0' },
+  { 'student_id"";""rev': '25973;690.0' },
+  { 'student_id"";""rev': '26280;690.0' },
+  { 'student_id"";""rev': '100300;990.0' },
+  { 'student_id"";""rev': '100645;630.0' },
+  { 'student_id"";""rev': '102534;580.0' },
+  { 'student_id"";""rev': '106837;290.0' },
+  { 'student_id"";""rev': '108270;290.0' },
+  { 'student_id"";""rev': '114366;690.0' },
+  { 'student_id"";""rev': '150911;290.0' },
+  { 'student_id"";""rev': '158400;690.0' },
+  { 'student_id"";""rev': '181671;690.0' },
+  { 'student_id"";""rev': '191925;690.0' },
+  { 'student_id"";""rev': '206193;690.0' },
+  { 'student_id"";""rev': '207051;690.0' },
+  { 'student_id"";""rev': '212994;690.0' },
+  { 'student_id"";""rev': '218393;690.0' },
+  { 'student_id"";""rev': '225541;690.0' },
+  { 'student_id"";""rev': '226909;1140.0' },
+  { 'student_id"";""rev': '238747;690.0' },
+  { 'student_id"";""rev': '239626;1140.0' },
+  { 'student_id"";""rev': '243614;690.0' },
+  { 'student_id"";""rev': '247613;690.0' },
+  { 'student_id"";""rev': '247888;690.0' },
+  { 'student_id"";""rev': '250196;690.0' },
+  { 'student_id"";""rev': '264473;1900.0001' },
+  { 'student_id"";""rev': '274352;690.0' },
+  { 'student_id"";""rev': '280034;290.0' },
+  { 'student_id"";""rev': '280036;199.0' },
+  { 'student_id"";""rev': '284083;398.0' },
+  { 'student_id"";""rev': '287008;1830.0' },
+  { 'student_id"";""rev': '296608;1140.0' },
+  { 'student_id"";""rev': '299195;1900.0' },
+  { 'student_id"";""rev': '308549;1900.0' },
+  { 'student_id"";""rev': '308594;1900.0' },
+  { 'student_id"";""rev': '311875;690.0' },
+  { 'student_id"";""rev': '317062;3260.0' },
+  { 'student_id"";""rev': '323325;690.0' },
+  { 'student_id"";""rev': '330737;1900.0' },
+  { 'student_id"";""rev': '331312;1900.0' },
+  { 'student_id"";""rev': '332387;2910.0' },
+  { 'student_id"";""rev': '338677;1900.0001' },
+  { 'student_id"";""rev': '343083;990.0' },
+  { 'student_id"";""rev': '347455;2820.0' },
+  { 'student_id"";""rev': '350574;690.0' },
+  { 'student_id"";""rev': '352210;690.0' },
+  { 'student_id"";""rev': '359039;2099.0' },
+  { 'student_id"";""rev': '365174;690.0' },
+  { 'student_id"";""rev': '365832;690.0' },
+  { 'student_id"";""rev': '366127;1900.0' },
+  { 'student_id"";""rev': '368342;1900.0' },
+  { 'student_id"";""rev': '369906;690.0' },
+  { 'student_id"";""rev': '376893;1140.0' },
+  { 'student_id"";""rev': '376983;690.0' },
+  { 'student_id"";""rev': '379049;690.0' },
+  { 'student_id"";""rev': '380679;690.0' },
+  { 'student_id"";""rev': '384731;1900.0' },
+  { 'student_id"";""rev': '387124;690.0' },
+  { 'student_id"";""rev': '393127;290.0' },
+  { 'student_id"";""rev': '402835;690.0' },
+  { 'student_id"";""rev': '429366;1140.0' },
+  { 'student_id"";""rev': '431962;690.0' },
+  { 'student_id"";""rev': '439887;690.0' },
+  { 'student_id"";""rev': '445767;3660.0' },
+  { 'student_id"";""rev': '446915;690.0' },
+  { 'student_id"";""rev': '447632;690.0' },
+  { 'student_id"";""rev': '448772;1140.0' },
+  { 'student_id"";""rev': '448877;690.0' },
+  { 'student_id"";""rev': '449385;1140.0' },
+  { 'student_id"";""rev': '449412;690.0' },
+  { 'student_id"";""rev': '450046;690.0' },
+  { 'student_id"";""rev': '450103;690.0' },
+  { 'student_id"";""rev': '450766;690.0' },
+  { 'student_id"";""rev': '450815;1140.0' },
+  { 'student_id"";""rev': '450910;690.0' },
+  { 'student_id"";""rev': '453013;690.0' },
+  { 'student_id"";""rev': '453160;690.0' },
+  { 'student_id"";""rev': '454872;690.0' },
+  { 'student_id"";""rev': '454934;690.0' },
+  { 'student_id"";""rev': '455013;690.0' },
+  { 'student_id"";""rev': '455043;690.0' },
+  { 'student_id"";""rev': '455095;690.0' },
+  { 'student_id"";""rev': '455733;690.0' },
+  { 'student_id"";""rev': '455892;690.0' },
+  { 'student_id"";""rev': '455945;690.0' },
+  { 'student_id"";""rev': '455952;1140.0' },
+  { 'student_id"";""rev': '456232;690.0' },
+  { 'student_id"";""rev': '456247;690.0' },
+  { 'student_id"";""rev': '456477;690.0' },
+  { 'student_id"";""rev': '456555;1140.0' },
+  { 'student_id"";""rev': '456900;690.0' },
+  { 'student_id"";""rev': '457466;690.0' },
+  { 'student_id"";""rev': '457498;690.0' },
+  { 'student_id"";""rev': '458069;690.0' },
+  { 'student_id"";""rev': '458325;690.0' },
+  { 'student_id"";""rev': '458537;690.0' },
+  { 'student_id"";""rev': '458595;690.0' },
+  { 'student_id"";""rev': '459013;1140.0' },
+  { 'student_id"";""rev': '459612;690.0' },
+  ... 441 more items
+]
+"
+1687113147237,"END RequestId: a9380737-f989-4987-bd28-8827433c5cf5
+"
+1687113147237,"REPORT RequestId: a9380737-f989-4987-bd28-8827433c5cf5	Duration: 796.85 ms	Billed Duration: 797 ms	Memory Size: 128 MB	Max Memory Used: 36 MB	
+"
+1687113252569,"START RequestId: 3d9f1fa2-2ff1-43bb-bb81-06b30aea9d65 Version: $LATEST
+"
+1687113252819,"2023-06-18T18:34:12.819Z	3d9f1fa2-2ff1-43bb-bb81-06b30aea9d65	INFO	Received event: {
+  ""Records"": [
+    {
+      ""eventVersion"": ""2.1"",
+      ""eventSource"": ""aws:s3"",
+      ""awsRegion"": ""eu-central-1"",
+      ""eventTime"": ""2023-06-18T18:34:11.929Z"",
+      ""eventName"": ""ObjectCreated:Put"",
+      ""userIdentity"": {
+        ""principalId"": ""AWS:AROAWJME3SB2KYGONNGBD:importProductsFile""
+      },
+      ""requestParameters"": {
+        ""sourceIPAddress"": ""37.215.21.90""
+      },
+      ""responseElements"": {
+        ""x-amz-request-id"": ""J5SCZV0G8V7PRTKK"",
+        ""x-amz-id-2"": ""Fl8+Z3DAnabdV6HGggfTMTLKkcWx3HMSZaSwIW7vgY/5JjEEHer/JHW0xkGfV4t8NVzyAWj2aipJB8cfb+evTCtfb4fu5Kqo""
+      },
+      ""s3"": {
+        ""s3SchemaVersion"": ""1.0"",
+        ""configurationId"": ""arn:aws:cloudformation:eu-central-1:432459714676:stack/ImportServiceStack/b0516850-0b6d-11ee-b202-0247d39f1d58--8850646581874539411"",
+        ""bucket"": {
+          ""name"": ""awscd-import-service"",
+          ""ownerIdentity"": {
+            ""principalId"": ""ALIL5H36DH3JV""
+          },
+          ""arn"": ""arn:aws:s3:::awscd-import-service""
+        },
+        ""object"": {
+          ""key"": ""uploaded/shops.csv"",
+          ""size"": 706,
+          ""eTag"": ""6db55b9c9d22949ccbe6ad808f3bf78b"",
+          ""sequencer"": ""00648F4E23DF585319""
+        }
+      }
+    }
+  ]
+}
+"
+1687113252820,"2023-06-18T18:34:12.820Z	3d9f1fa2-2ff1-43bb-bb81-06b30aea9d65	INFO	Filename:  uploaded/shops.csv
+"
+1687113253152,"2023-06-18T18:34:13.152Z	3d9f1fa2-2ff1-43bb-bb81-06b30aea9d65	INFO	[
+  {
+    food: 'chocolate',
+    price: '100.3',
+    store: 'supermarket',
+    origin: 'russia'
+  },
+  {
+    food: 'chocolate',
+    price: '55.57',
+    store: 'minimarket',
+    origin: 'russia'
+  },
+  {
+    food: 'chocolate',
+    price: '268.62',
+    store: 'minimarket',
+    origin: 'import'
+  },
+  {
+    food: 'chocolate',
+    price: '196.81',
+    store: 'supermarket',
+    origin: 'import'
+  },
+  {
+    food: 'bread',
+    price: '10.91',
+    store: 'minimarket',
+    origin: 'russia'
+  },
+  {
+    food: 'bread',
+    price: '25.84',
+    store: 'supermarket',
+    origin: 'russia'
+  },
+  {
+    food: 'bread',
+    price: '35.44',
+    store: 'supermarket',
+    origin: 'import'
+  },
+  {
+    food: 'vegetables',
+    price: '64.93',
+    store: 'minimarket',
+    origin: 'russia'
+  },
+  {
+    food: 'bread',
+    price: '116.23',
+    store: 'minimarket',
+    origin: 'import'
+  },
+  {
+    food: 'vegetables',
+    price: '226.39',
+    store: 'supermarket',
+    origin: 'russia'
+  },
+  {
+    food: 'vegetables',
+    price: '209.15',
+    store: 'supermarket',
+    origin: 'import'
+  },
+  {
+    food: 'vegetables',
+    price: '359',
+    store: 'minimarket',
+    origin: 'import'
+  },
+  {
+    food: 'fruits',
+    price: '85.84',
+    store: 'minimarket',
+    origin: 'russia'
+  },
+  {
+    food: 'fruits',
+    price: '191.07',
+    store: 'supermarket',
+    origin: 'import'
+  },
+  {
+    food: 'fruits',
+    price: '208.59',
+    store: 'supermarket',
+    origin: 'russia'
+  },
+  {
+    food: 'fruits',
+    price: '400.17',
+    store: 'minimarket',
+    origin: 'import'
+  },
+  {
+    food: 'cheese',
+    price: '184.56',
+    store: 'minimarket',
+    origin: 'russia'
+  },
+  {
+    food: 'cheese',
+    price: '278.86',
+    store: 'supermarket',
+    origin: 'russia'
+  },
+  {
+    food: 'cheese',
+    price: '333.21',
+    store: 'supermarket',
+    origin: 'import'
+  },
+  {
+    food: 'cheese',
+    price: '504',
+    store: 'minimarket',
+    origin: 'import'
+  }
+]
+"
+1687113253219,"END RequestId: 3d9f1fa2-2ff1-43bb-bb81-06b30aea9d65
+"
+1687113253219,"REPORT RequestId: 3d9f1fa2-2ff1-43bb-bb81-06b30aea9d65	Duration: 649.95 ms	Billed Duration: 650 ms	Memory Size: 128 MB	Max Memory Used: 36 MB	
+"

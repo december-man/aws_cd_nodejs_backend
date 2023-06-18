@@ -1,24 +1,20 @@
 ### Task 5: setup S3 bucket & Lambdas for files import microservice 
 
+#### AWS CDK Stack with importProductsFile and importFileParser handlers
+
 ### Links: 
 
-#### AWS CDK Stack with importProductsFile and importFileParser functions:
+#### /import (Pre-Signed URL generator):
 
-url
-(Notice uploaded/parsed functionality in importFileParses function)
-
-#### /import:
-
-url
+https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com/import/
 
 #### FE (/import):
 
-https://d172ijz47ga3e3.cloudfront.net/
+https://d172ijz47ga3e3.cloudfront.net/admin/products
 
-#### Unit tests:
 
-url
+#### SWAGGER:
 
-#### Reminder: Attach cloudwatch logs screenshot
+https://app.swaggerhub.com/apis/december-man/Import-Service/1.0.0
 
 
