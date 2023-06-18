@@ -8,6 +8,9 @@
 
 https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com/import/
 
+Request Parameter Example:
+https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com/import/?name=tryme.csv
+
 #### FE (/import):
 
 https://d172ijz47ga3e3.cloudfront.net/admin/products
