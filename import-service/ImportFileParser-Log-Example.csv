@@ -1,23 +1,25 @@
 timestamp,message
-1687113252569,"START RequestId: 3d9f1fa2-2ff1-43bb-bb81-06b30aea9d65 Version: $LATEST
+1687127763108,"INIT_START Runtime Version: nodejs:18.v7	Runtime Version ARN: arn:aws:lambda:eu-central-1::runtime:26e9402591d9c467cdcc7355f843d61968f36ecb6e9ef5ab253cc21163343275
 "
-1687113252819,"2023-06-18T18:34:12.819Z	3d9f1fa2-2ff1-43bb-bb81-06b30aea9d65	INFO	Received event: {
+1687127763613,"START RequestId: acbda3ec-363e-4b6e-baa2-5aff79b3dabd Version: $LATEST
+"
+1687127763614,"2023-06-18T22:36:03.614Z	acbda3ec-363e-4b6e-baa2-5aff79b3dabd	INFO	Received event: {
   ""Records"": [
     {
       ""eventVersion"": ""2.1"",
       ""eventSource"": ""aws:s3"",
       ""awsRegion"": ""eu-central-1"",
-      ""eventTime"": ""2023-06-18T18:34:11.929Z"",
+      ""eventTime"": ""2023-06-18T22:36:02.335Z"",
       ""eventName"": ""ObjectCreated:Put"",
       ""userIdentity"": {
         ""principalId"": ""AWS:AROAWJME3SB2KYGONNGBD:importProductsFile""
       },
       ""requestParameters"": {
-        ""sourceIPAddress"": ""37.215.21.90""
+        ""sourceIPAddress"": ""37.215.19.7""
       },
       ""responseElements"": {
-        ""x-amz-request-id"": ""J5SCZV0G8V7PRTKK"",
-        ""x-amz-id-2"": ""Fl8+Z3DAnabdV6HGggfTMTLKkcWx3HMSZaSwIW7vgY/5JjEEHer/JHW0xkGfV4t8NVzyAWj2aipJB8cfb+evTCtfb4fu5Kqo""
+        ""x-amz-request-id"": ""5W5FG8AK2QM96BA1"",
+        ""x-amz-id-2"": ""NP1agrOmeQ78iVolAi3JUoqNIT7EcfKFR7/p6w00NGr5iMAYncjZ4tIoZmmBg5cbuJdrVWqE5S8JPAbwYkRKAvU1JC0xNYXj""
       },
       ""s3"": {
         ""s3SchemaVersion"": ""1.0"",
@@ -33,16 +35,16 @@ timestamp,message
           ""key"": ""uploaded/shops.csv"",
           ""size"": 706,
           ""eTag"": ""6db55b9c9d22949ccbe6ad808f3bf78b"",
-          ""sequencer"": ""00648F4E23DF585319""
+          ""sequencer"": ""00648F86D24C9F2D69""
         }
       }
     }
   ]
 }
 "
-1687113252820,"2023-06-18T18:34:12.820Z	3d9f1fa2-2ff1-43bb-bb81-06b30aea9d65	INFO	Filename:  uploaded/shops.csv
+1687127763623,"2023-06-18T22:36:03.623Z	acbda3ec-363e-4b6e-baa2-5aff79b3dabd	INFO	Filename:  uploaded/shops.csv Filename after parsing:  parsed/shops.csv
 "
-1687113253152,"2023-06-18T18:34:13.152Z	3d9f1fa2-2ff1-43bb-bb81-06b30aea9d65	INFO	[
+1687127764286,"2023-06-18T22:36:04.286Z	acbda3ec-363e-4b6e-baa2-5aff79b3dabd	INFO	[
   {
     food: 'chocolate',
     price: '100.3',
@@ -165,7 +167,11 @@ timestamp,message
   }
 ]
 "
-1687113253219,"END RequestId: 3d9f1fa2-2ff1-43bb-bb81-06b30aea9d65
+1687127764503,"2023-06-18T22:36:04.503Z	acbda3ec-363e-4b6e-baa2-5aff79b3dabd	INFO	Parsing is finished. File is copied to /parsed folder
 "
-1687113253219,"REPORT RequestId: 3d9f1fa2-2ff1-43bb-bb81-06b30aea9d65	Duration: 649.95 ms	Billed Duration: 650 ms	Memory Size: 128 MB	Max Memory Used: 36 MB	
+1687127764524,"2023-06-18T22:36:04.524Z	acbda3ec-363e-4b6e-baa2-5aff79b3dabd	INFO	Source file is removed
+"
+1687127764544,"END RequestId: acbda3ec-363e-4b6e-baa2-5aff79b3dabd
+"
+1687127764544,"REPORT RequestId: acbda3ec-363e-4b6e-baa2-5aff79b3dabd	Duration: 931.09 ms	Billed Duration: 932 ms	Memory Size: 128 MB	Max Memory Used: 101 MB	Init Duration: 504.01 ms	
 "

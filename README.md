@@ -2,7 +2,7 @@
 
 ## Links:
 
-#### Product Service API: https://x43rdjvcy0.execute-api.eu-central-1.amazonaws.com
+### Product Service API: https://x43rdjvcy0.execute-api.eu-central-1.amazonaws.com
 
  /products GET API: 
  
@@ -20,21 +20,21 @@
  Use postman or RESTer to send JSON body or check out SWAGGER docs - link below
 
 
-#### Import Service API: https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com
+### Import Service API: https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com
 
  /import/{name}: 
  
  https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com/import/
- Request Parameter Example:
 
+ Request Parameter Example:
 
  https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com/import/?name=tryme.csv
 
-#### Link to FE: https://github.com/december-man/nodejs-aws-shop-react/
+### Link to FE: https://github.com/december-man/nodejs-aws-shop-react/
 
  FE on cloudfront: https://d172ijz47ga3e3.cloudfront.net/
 
-#### SWAGGER: 
+### SWAGGER: 
 
 Product-Service:
 
