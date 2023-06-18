@@ -18,6 +18,6 @@ https://d172ijz47ga3e3.cloudfront.net/admin/products
 
 #### SWAGGER:
 
-https://app.swaggerhub.com/apis/december-man/Import-Service/1.0.0
+https://app.swaggerhub.com/apis-docs/december-man/Import-Service/1.0.0#/
 
 
