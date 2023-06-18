@@ -8,22 +8,23 @@ dotenv.config({ path: path.resolve(__dirname, '../../.env') })
 
 export const handler = async (event: any) => {
   
-    const name = event.queryStringParameters?.name;
-    const bucket = process.env.IMPORT_BUCKET_NAME!;
+  console.log('Received event:', JSON.stringify(event, null, 2));
+  const name = event.queryStringParameters?.name;
+  const bucket = process.env.IMPORT_BUCKET_NAME!;
 
-    if (!name) return buildResponse(400, {message: "Missing parameter 'name'"});
+  if (!name) return buildResponse(400, {message: "Missing parameter 'name'"});
+  if (name.slice(-4) !== '.csv') return buildResponse(400, {message: "Please upload only csv files!"});
 
-    const client = new S3Client({});
-    const command = new PutObjectCommand({Bucket: bucket, Key: name});
-
-    console.log("echo ImportProductsFile", event);
+  const client = new S3Client({});
+  const command = new PutObjectCommand({Bucket: bucket, Key: `uploaded/${name}`});
 
   try {
-      await client.send(command);
       const link = await getSignedUrl(client, command, { expiresIn: 3600 });
-      return buildResponse(200, `${link}/${name}`);
+      //await client.send(command);
+      return buildResponse(200, `${link}`);
     }
   catch (error: any) {
+    console.log(error.message);
     return buildResponse(500, {message: error.message});
   }
 };

@@ -57,6 +57,9 @@ const importFileParser = new NodejsFunction(stack, 'importFileParserLambda', {
   entry: 'source/lambda_handlers/importFileParser.ts',
 });
 
+bucket.grantReadWrite(importFileParser);
+
 bucket.addEventNotification(
-  s3.EventType.OBJECT_CREATED, new s3notifications.LambdaDestination(importFileParser)
-  );
+  s3.EventType.OBJECT_CREATED, new s3notifications.LambdaDestination(importFileParser), {
+    prefix: 'uploaded'
+  });
