@@ -1,12 +1,14 @@
 import { buildResponse } from '../utils';
-import { MockStoreData } from '../mock_store_data'
+import pg from './index';
+
 
 export const handler = async (event: any) => {
   try {
+    console.log("echo getProductsList", event);
 
-    console.log("echo getProductsList", event)
+    const products = await pg.select('*').from('items');
 
-    return buildResponse(200, MockStoreData);
+    return buildResponse(200, products);
   }
   catch (error: any) {
     return buildResponse(500, {message: error.message});

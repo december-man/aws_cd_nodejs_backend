@@ -1,0 +1,142 @@
+[
+    {
+        "id": {
+        "S": "d25f7749-cc0b-4a77-87d7-9bbc1c1184f5"
+        },
+        "title": {
+        "S": "Mock Data Generator EVO 1"
+        },
+        "description": {
+        "S": "Perfect for cases like this!"
+        },
+        "price": {
+        "N": "100"
+        }
+    },
+    {
+        "id": {
+        "S": "e0adf303-6828-4ea7-8db8-05139e1f31ff"
+        },
+        "title": {
+        "S": "Mock Data Generator EVO 2"
+        },
+        "description": {
+        "S": "Perfect for cases like this!"
+        },
+        "price": {
+        "N": "200"
+        }
+    },
+    {
+        "id": {
+          "S": "64e5231c-b074-4cef-a95f-5965ae77dead"
+        },
+        "title": {
+          "S": "Mock Data Generator EVO 3"
+        },
+        "description": {
+          "S": "Perfect for cases like this!"
+        },
+        "price": {
+          "N": "300"
+        }
+      },
+      {
+        "id": {
+          "S": "eaac2b5a-ef59-4340-861b-ba0c094b3dd5"
+        },
+        "title": {
+          "S": "Fake UUID Generator v2.1 beta"
+        },
+        "description": {
+          "S": "Perfect to mess with databases, as it contains duplicates!"
+        },
+        "price": {
+          "N": "50"
+        }
+      },
+      {
+        "id": {
+          "S": "e5197a7e-c9c6-402e-933f-743b77b08e9e"
+        },
+        "title": {
+          "S": "In Noise We Trust model X"
+        },
+        "description": {
+          "S": "ML model that substitutes input data with gaussian noise"
+        },
+        "price": {
+          "N": "125"
+        }
+      },
+      {
+        "id": {
+          "S": "dfb20384-5182-4205-9c37-d24345e62e11"
+        },
+        "title": {
+          "S": "PostgreSQL"
+        },
+        "description": {
+          "S": "It's not free anymore"
+        },
+        "price": {
+          "N": "25"
+        }
+      },
+      {
+        "id": {
+          "S": "9224c1ef-2937-419a-a035-39e115fb6806"
+        },
+        "title": {
+          "S": "5G muffler extreme"
+        },
+        "description": {
+          "S": "5G is going to kill us all!"
+        },
+        "price": {
+          "N": "500"
+        }
+      },
+      {
+        "id": {
+          "S": "d20961b4-8a22-4d36-a715-6d4f52f8c251"
+        },
+        "title": {
+          "S": "It's raining men"
+        },
+        "description": {
+          "S": "Hallelujah"
+        },
+        "price": {
+          "N": "666"
+        }
+      },
+      {
+        "id": {
+          "S": "dea9ab4d-3380-4fdc-9338-55a4b017399d"
+        },
+        "title": {
+          "S": "ETH smart contract backdoors"
+        },
+        "description": {
+          "S": "Vitalik cannot be trusted"
+        },
+        "price": {
+          "N": "666"
+        }
+      },
+      {
+        "id": {
+          "S": "16914eea-e215-4084-a103-43f16d652146"
+        },
+        "title": {
+          "S": "Faraday Cage"
+        },
+        "description": {
+          "S": "Portable version!"
+        },
+        "price": {
+          "N": "15"
+        }
+      }
+]
