@@ -1,0 +1,82 @@
+[
+    {
+        "product_id": {
+            "S": "d25f7749-cc0b-4a77-87d7-9bbc1c1184f5"
+        },
+        "count": {
+            "N": "2"
+        }
+    },
+    {
+        "product_id": {
+            "S": "e0adf303-6828-4ea7-8db8-05139e1f31ff"
+        },
+        "count": {
+            "N": "5"
+        }
+    },
+    {
+        "product_id": {
+            "S": "64e5231c-b074-4cef-a95f-5965ae77dead"
+        },
+        "count": {
+            "N": "7"
+        }
+    },
+    {
+        "product_id": {
+            "S": "eaac2b5a-ef59-4340-861b-ba0c094b3dd5"
+        },
+        "count": {
+            "N": "398"
+        }
+    },
+    {
+        "product_id": {
+            "S": "e5197a7e-c9c6-402e-933f-743b77b08e9e"
+        },
+        "count": {
+            "N": "14"
+        }
+    },
+    {
+        "product_id": {
+            "S": "dfb20384-5182-4205-9c37-d24345e62e11"
+        },
+        "count": {
+            "N": "763"
+        }
+    },
+    {
+        "product_id": {
+            "S": "9224c1ef-2937-419a-a035-39e115fb6806"
+        },
+        "count": {
+            "N": "3"
+        }
+    },
+    {
+        "product_id": {
+            "S": "d20961b4-8a22-4d36-a715-6d4f52f8c251"
+        },
+        "count": {
+            "N": "1"
+        }
+    },
+    {
+        "product_id": {
+            "S": "dea9ab4d-3380-4fdc-9338-55a4b017399d"
+        },
+        "count": {
+            "N": "1"
+        }
+    },
+    {
+        "product_id": {
+            "S": "16914eea-e215-4084-a103-43f16d652146"
+        },
+        "count": {
+            "N": "560"
+        }
+    }
+]
