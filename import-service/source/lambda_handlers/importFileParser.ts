@@ -3,7 +3,7 @@ import { GetObjectCommand, S3Client, CopyObjectCommand, DeleteObjectCommand} fro
 import { S3Event } from 'aws-lambda';
 import csvParser from 'csv-parser';
 import { Readable } from 'stream';
-import * as AWS from 'aws-sdk';
+import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs";
 
 dotenv.config();
 
@@ -11,7 +11,7 @@ export const handler = async (event: S3Event) => {
 
     const client = new S3Client({});
     // Task 6: send each .csv record into SQS
-    const sqs = new AWS.SQS();
+    const sqs = new SQSClient({});
     
     console.log('Received event:', JSON.stringify(event, null, 2));
 
@@ -47,20 +47,18 @@ export const handler = async (event: S3Event) => {
         await new Promise((resolve) => { 
             readStream.pipe(csvParser({separator : ','}))
             // on data - stringify .csv file entry row (item) into a message and send it to SQS, +callback
-                .on('data', async (data: any) => {
-                    const item = {
-                        MessageBody: JSON.stringify(data),
-                    };
-                    await sqs.sendMessage({
-                        QueueUrl: queueUrl,
-                        ...item,
-                    }, (error, data) => {
-                        if (error) {
-                            console.log('ERROR:', error);
-                        } else {
-                            console.log('Messaged successfully: ', item);
-                        }
-                    });
+                .on('data', (data: any) => {
+                    const item = JSON.stringify({
+                        ...data,
+                        price: Number(data.price),
+                        count: Number(data.count),
+                      });
+                    sqs.send(
+                        new SendMessageCommand({
+                            QueueUrl: queueUrl,
+                            MessageBody: item,
+                        })
+                    );
                 })
                 .on('end',  async () => {
                     await client.send(copyObjectCommand);

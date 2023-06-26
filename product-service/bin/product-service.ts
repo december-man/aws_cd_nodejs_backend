@@ -102,7 +102,7 @@ api.addRoutes({
 const queue = new sqs.Queue(stack, 'CatalogItemsQueue', {
   queueName: 'catalogItemsQueue',
   retentionPeriod: cdk.Duration.hours(1),
-  receiveMessageWaitTime: cdk.Duration.seconds(20), // Long Polling
+  receiveMessageWaitTime: cdk.Duration.seconds(10), // Long Polling
   visibilityTimeout: cdk.Duration.seconds(30),
 });
 
@@ -111,19 +111,14 @@ const topic = new sns.Topic(stack, 'CreateProductTopic', {
   topicName: 'createProductTopic',
 });
 
-// Create Filter Policy: basically a placeholder.
-const filterPolicy = {
-  title: sns.SubscriptionFilter.stringFilter({
-    allowlist: ['SQS batch processing finished successfully'],
-  }),
-};
-
 // Add a subscriber (-filter)
 topic.addSubscription(new subs.EmailSubscription(process.env.SNSEMAIL!));
 
 // Add a subscriber (+ filter)
 topic.addSubscription(new subs.EmailSubscription(process.env.SNSEMAILPRIORITY!, {
-  filterPolicy,
+  filterPolicy: {
+    price: sns.SubscriptionFilter.numericFilter({ greaterThan: 500 }),
+  },
 }));
 
 // Create `catalogBatchProcess` lambda function
