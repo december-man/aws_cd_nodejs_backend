@@ -4,12 +4,9 @@
 
 ### Links: 
 
-#### FE (upload a short .csv file of 5 to 10 entries and check products list to verify catalogBatchProcess & importFileParser lambdas):
+#### FE:
 
 https://d172ijz47ga3e3.cloudfront.net/admin/products
-
-
-#### SNS email-notification screenshot: TO DO
 
 
 #### SWAGGER (no changes in API since 5th task):
