@@ -22,7 +22,7 @@
 
 ### Import Service API: https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com
 
- /import/{name}: 
+ /import/{name} (with authorization): 
  
  https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com/import/
 
