@@ -1,0 +1,177 @@
+timestamp,message
+1687127763108,"INIT_START Runtime Version: nodejs:18.v7	Runtime Version ARN: arn:aws:lambda:eu-central-1::runtime:26e9402591d9c467cdcc7355f843d61968f36ecb6e9ef5ab253cc21163343275
+"
+1687127763613,"START RequestId: acbda3ec-363e-4b6e-baa2-5aff79b3dabd Version: $LATEST
+"
+1687127763614,"2023-06-18T22:36:03.614Z	acbda3ec-363e-4b6e-baa2-5aff79b3dabd	INFO	Received event: {
+  ""Records"": [
+    {
+      ""eventVersion"": ""2.1"",
+      ""eventSource"": ""aws:s3"",
+      ""awsRegion"": ""eu-central-1"",
+      ""eventTime"": ""2023-06-18T22:36:02.335Z"",
+      ""eventName"": ""ObjectCreated:Put"",
+      ""userIdentity"": {
+        ""principalId"": ""AWS:AROAWJME3SB2KYGONNGBD:importProductsFile""
+      },
+      ""requestParameters"": {
+        ""sourceIPAddress"": ""37.215.19.7""
+      },
+      ""responseElements"": {
+        ""x-amz-request-id"": ""5W5FG8AK2QM96BA1"",
+        ""x-amz-id-2"": ""NP1agrOmeQ78iVolAi3JUoqNIT7EcfKFR7/p6w00NGr5iMAYncjZ4tIoZmmBg5cbuJdrVWqE5S8JPAbwYkRKAvU1JC0xNYXj""
+      },
+      ""s3"": {
+        ""s3SchemaVersion"": ""1.0"",
+        ""configurationId"": ""arn:aws:cloudformation:eu-central-1:432459714676:stack/ImportServiceStack/b0516850-0b6d-11ee-b202-0247d39f1d58--8850646581874539411"",
+        ""bucket"": {
+          ""name"": ""awscd-import-service"",
+          ""ownerIdentity"": {
+            ""principalId"": ""ALIL5H36DH3JV""
+          },
+          ""arn"": ""arn:aws:s3:::awscd-import-service""
+        },
+        ""object"": {
+          ""key"": ""uploaded/shops.csv"",
+          ""size"": 706,
+          ""eTag"": ""6db55b9c9d22949ccbe6ad808f3bf78b"",
+          ""sequencer"": ""00648F86D24C9F2D69""
+        }
+      }
+    }
+  ]
+}
+"
+1687127763623,"2023-06-18T22:36:03.623Z	acbda3ec-363e-4b6e-baa2-5aff79b3dabd	INFO	Filename:  uploaded/shops.csv Filename after parsing:  parsed/shops.csv
+"
+1687127764286,"2023-06-18T22:36:04.286Z	acbda3ec-363e-4b6e-baa2-5aff79b3dabd	INFO	[
+  {
+    food: 'chocolate',
+    price: '100.3',
+    store: 'supermarket',
+    origin: 'russia'
+  },
+  {
+    food: 'chocolate',
+    price: '55.57',
+    store: 'minimarket',
+    origin: 'russia'
+  },
+  {
+    food: 'chocolate',
+    price: '268.62',
+    store: 'minimarket',
+    origin: 'import'
+  },
+  {
+    food: 'chocolate',
+    price: '196.81',
+    store: 'supermarket',
+    origin: 'import'
+  },
+  {
+    food: 'bread',
+    price: '10.91',
+    store: 'minimarket',
+    origin: 'russia'
+  },
+  {
+    food: 'bread',
+    price: '25.84',
+    store: 'supermarket',
+    origin: 'russia'
+  },
+  {
+    food: 'bread',
+    price: '35.44',
+    store: 'supermarket',
+    origin: 'import'
+  },
+  {
+    food: 'vegetables',
+    price: '64.93',
+    store: 'minimarket',
+    origin: 'russia'
+  },
+  {
+    food: 'bread',
+    price: '116.23',
+    store: 'minimarket',
+    origin: 'import'
+  },
+  {
+    food: 'vegetables',
+    price: '226.39',
+    store: 'supermarket',
+    origin: 'russia'
+  },
+  {
+    food: 'vegetables',
+    price: '209.15',
+    store: 'supermarket',
+    origin: 'import'
+  },
+  {
+    food: 'vegetables',
+    price: '359',
+    store: 'minimarket',
+    origin: 'import'
+  },
+  {
+    food: 'fruits',
+    price: '85.84',
+    store: 'minimarket',
+    origin: 'russia'
+  },
+  {
+    food: 'fruits',
+    price: '191.07',
+    store: 'supermarket',
+    origin: 'import'
+  },
+  {
+    food: 'fruits',
+    price: '208.59',
+    store: 'supermarket',
+    origin: 'russia'
+  },
+  {
+    food: 'fruits',
+    price: '400.17',
+    store: 'minimarket',
+    origin: 'import'
+  },
+  {
+    food: 'cheese',
+    price: '184.56',
+    store: 'minimarket',
+    origin: 'russia'
+  },
+  {
+    food: 'cheese',
+    price: '278.86',
+    store: 'supermarket',
+    origin: 'russia'
+  },
+  {
+    food: 'cheese',
+    price: '333.21',
+    store: 'supermarket',
+    origin: 'import'
+  },
+  {
+    food: 'cheese',
+    price: '504',
+    store: 'minimarket',
+    origin: 'import'
+  }
+]
+"
+1687127764503,"2023-06-18T22:36:04.503Z	acbda3ec-363e-4b6e-baa2-5aff79b3dabd	INFO	Parsing is finished. File is copied to /parsed folder
+"
+1687127764524,"2023-06-18T22:36:04.524Z	acbda3ec-363e-4b6e-baa2-5aff79b3dabd	INFO	Source file is removed
+"
+1687127764544,"END RequestId: acbda3ec-363e-4b6e-baa2-5aff79b3dabd
+"
+1687127764544,"REPORT RequestId: acbda3ec-363e-4b6e-baa2-5aff79b3dabd	Duration: 931.09 ms	Billed Duration: 932 ms	Memory Size: 128 MB	Max Memory Used: 101 MB	Init Duration: 504.01 ms	
+"
