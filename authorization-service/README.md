@@ -1,14 +1,16 @@
-# Welcome to your CDK TypeScript project
+### Task 7: Lambda Authorization
 
-This is a blank project for CDK development with TypeScript.
+#### `AuthServiceStack` CDK Stack corresponding to `Authorization-Service` microservice
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+### Links: 
 
-## Useful commands
+#### /import API:
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com/import/
+
+#### FE:
+
+https://d172ijz47ga3e3.cloudfront.net/admin/products
+
+
+
