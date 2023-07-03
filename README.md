@@ -1,18 +1,47 @@
-### Task 6: Async Microservices Communication 
+## AWS Cloud Developer Rsschool Backend (Aliaksei's 'Not so Black' Market)
 
-#### 2 AWS CDK Stacks: ImportServiceStack (pulled from task-5) & ProductServiceStack (pulled from task-4)
+## Links:
 
-### Links: 
+### Product Service API: https://x43rdjvcy0.execute-api.eu-central-1.amazonaws.com
 
-#### FE:
+ /products GET API: 
+ 
+ https://x43rdjvcy0.execute-api.eu-central-1.amazonaws.com/products
 
-https://d172ijz47ga3e3.cloudfront.net/admin/products
+ /products/{productId} Example:
+
+ https://x43rdjvcy0.execute-api.eu-central-1.amazonaws.com/products/dea9ab4d-3380-4fdc-9338-55a4b017399d
+
+ /products POST API: 
+ 
+ https://x43rdjvcy0.execute-api.eu-central-1.amazonaws.com/products
 
 
-#### SWAGGER (no changes in API since 5th task):
+ Use postman or RESTer to send JSON body or check out SWAGGER docs - link below
 
-https://app.swaggerhub.com/apis/december-man/Import-Service/1.0.0
 
-https://app.swaggerhub.com/apis/december-man/Product-Service/1.0.0
+### Import Service API: https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com
+
+ /import/{name}: 
+ 
+ https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com/import/
+
+ Request Parameter Example:
+
+ https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com/import/?name=tryme.csv
+
+### Link to FE: https://github.com/december-man/nodejs-aws-shop-react/
+
+ FE on cloudfront: https://d172ijz47ga3e3.cloudfront.net/
+
+### SWAGGER: 
+
+Product-Service:
+
+https://app.swaggerhub.com/apis-docs/december-man/Product-Service/1.0.0#/
+
+Import-Service:
+
+https://app.swaggerhub.com/apis-docs/december-man/Import-Service/1.0.0#
 
 

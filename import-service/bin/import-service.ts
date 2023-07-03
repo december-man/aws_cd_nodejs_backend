@@ -18,7 +18,6 @@ const stack = new cdk.Stack(app, 'ImportServiceStack', {
   env: { region : process.env.AWS_REGION! },
 });
 
-// Common .env variables among lambdas
 const sharedLambdaProps = {
   runtime: lambda.Runtime.NODEJS_18_X,
   environment: {
@@ -33,6 +32,7 @@ const sharedLambdaProps = {
 const bucket = s3.Bucket.fromBucketArn(stack, 'ImportBucket', process.env.IMPORT_BUCKET!);
 
 // Create `importPrudctsFile` lambda
+
 const importProductsFile = new NodejsFunction(stack, 'importProductsFileLambda', {
   ...sharedLambdaProps,
   functionName: 'importProductsFile',
