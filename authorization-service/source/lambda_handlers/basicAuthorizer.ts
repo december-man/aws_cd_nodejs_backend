@@ -1,18 +1,19 @@
-import { buildResponse } from '../utils';
+// Lambda HTTP Authorizer, IAM type
+
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 
-dotenv.config({ path: path.resolve(__dirname, '../../.env') })
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 export const handler = async (event: any) => {
 
   console.log('Received event:', JSON.stringify(event, null, 2));
 
-  // generate policy on password comparison
+  // generate policy on password comparison function
   const generatePolicy = (principalid:string, resource: string, effect: 'Allow' | 'Deny') => {
     return {
       principalId: principalid,
-      PolicyDocument : {
+      policyDocument : {
         Version: '2012-10-17',
         Statement:  [
           {
@@ -25,38 +26,42 @@ export const handler = async (event: any) => {
     }
   };
 
+  // Authorization header check
+  if (!event.headers.authorization) {
+    return generatePolicy('client', event.methodArn, 'Deny');
+  };
+  
+  // Input Credentials
+  const authToken = event.headers.authorization;
+  console.log(authToken); // debugging
+
+  // Remove `Basic` prefix
+  const encodedCreds = authToken.split(' ')[1];
+
+  // Decode
+  const decodedCreds = Buffer.from(encodedCreds, 'base64').toString('utf-8').split(':');
+
+  // Split into username-password variables
+  const username = decodedCreds[0];
+  const password = decodedCreds[1];
+  
+  console.log(`username: ${username}, password: ${password}`); // debugging
+
   try {
 
-    // Input Credentials
-    const authToken = event.headers.authorization;
-    const encodedCreds = authToken.split(' ')[1];
-    const decodedCreds = Buffer.from(encodedCreds, 'base64').toString('utf-8').split(':');
-    const username = decodedCreds[0];
-    const password = decodedCreds[1];
-    
-    console.log(`username: ${username}, password: ${password}`); // debugging
-
-    // Stored Credentials
+    // Stored Credentials (password)
     const storedCreds = process.env.USER_PASSWORD!;
-
-    // Policy Regulations
-    const effect = !storedCreds || storedCreds != password ? 'Deny' : 'Allow';
-    const policy = generatePolicy(encodedCreds, event.methodArn, effect);
 
     // Authentication
 
-    if (!event.headers || !event.headers.authorization) {
-      return buildResponse(401, {message: 'Unauthorized'})
-    }
-
     if (storedCreds == password) {
-      return buildResponse (200, {message: `Authentication successful: ${policy}`});
+      return generatePolicy(encodedCreds, event.methodArn, 'Allow');
     } else {
-      return buildResponse(403, {message: `Forbidden: ${policy}`});
-    }
+      return generatePolicy(encodedCreds, event.methodArn, 'Deny');
+    };
   }
   catch (error: any) {
     console.log(error.message);
-    return buildResponse(401, {message: `Unauthorized: ${error.message}`});
+    return generatePolicy(encodedCreds, event.methodArn, 'Deny');
   }
 };

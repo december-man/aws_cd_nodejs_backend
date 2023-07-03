@@ -20,7 +20,7 @@ const stack = new cdk.Stack(app, 'ImportServiceStack', {
 });
 
 // Common .env variables among lambdas
-const sharedLambdaProps = {
+const sharedLambdaProps: Partial<NodejsFunctionProps> = {
   runtime: lambda.Runtime.NODEJS_18_X,
   environment: {
     PRODUCT_AWS_REGION: process.env.AWS_REGION!,
@@ -45,7 +45,6 @@ const importProductsFile = new NodejsFunction(stack, 'importProductsFileLambda',
 bucket.grantReadWrite(importProductsFile);
 
 // API config
-
 
 // Reference existing Basic Authentication Authorizer Lambda from AuthServiceStack
 const basicAuthorizerLambda = lambda.Function.fromFunctionArn(stack, 'basicAuthorizerFunc', process.env.LAMBDA_AUTH_ARN!);
