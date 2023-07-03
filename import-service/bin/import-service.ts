@@ -46,6 +46,7 @@ bucket.grantReadWrite(importProductsFile);
 
 // API config
 
+
 // Reference existing Basic Authentication Authorizer Lambda from AuthServiceStack
 const basicAuthorizerLambda = lambda.Function.fromFunctionArn(stack, 'basicAuthorizerFunc', process.env.LAMBDA_AUTH_ARN!);
 

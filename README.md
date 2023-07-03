@@ -42,8 +42,6 @@ https://app.swaggerhub.com/apis-docs/december-man/Product-Service/1.0.0#/
 
 Import-Service:
 
-https://app.swaggerhub.com/apis-docs/december-man/Import-Service/1.0.0#/
-
-
+https://app.swaggerhub.com/apis-docs/december-man/Import-Service/1.0.0#
 
 

@@ -1,5 +1,9 @@
 import * as cdk from "aws-cdk-lib";
 import * as lambda from "aws-cdk-lib/aws-lambda";
+import * as lambdaEventSources from "aws-cdk-lib/aws-lambda-event-sources";
+import * as sqs from "aws-cdk-lib/aws-sqs";
+import * as sns from 'aws-cdk-lib/aws-sns';
+import * as subs from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as apiGateway from "@aws-cdk/aws-apigatewayv2-alpha";
 import * as iam from "aws-cdk-lib/aws-iam";
 import { HttpLambdaIntegration } from "@aws-cdk/aws-apigatewayv2-integrations-alpha";
@@ -19,6 +23,7 @@ const stack = new cdk.Stack(app, 'ProductServiceStack', {
 //  })
 });
 
+// Common .env variables among lambdas & lambdas bundling
 const sharedLambdaProps: Partial<NodejsFunctionProps> = {
   runtime: lambda.Runtime.NODEJS_18_X,
   environment: {
@@ -27,7 +32,8 @@ const sharedLambdaProps: Partial<NodejsFunctionProps> = {
     PG_PORT: process.env.PG_PORT!,
     PG_DATABASE: process.env.PG_DATABASE!,
     PG_USERNAME: process.env.PG_USERNAME!,
-    PG_PASSWORD: process.env.PG_PASSWORD!, 
+    PG_PASSWORD: process.env.PG_PASSWORD!,
+    SNS_TOPIC: process.env.SNS_TOPIC!,
   },
   bundling: {
     externalModules: [
@@ -43,24 +49,28 @@ const sharedLambdaProps: Partial<NodejsFunctionProps> = {
   },
 };
 
+// Create `getProductsList` lambda
 const getProductsList = new NodejsFunction(stack, 'GetProductsListLambda', {
   ...sharedLambdaProps,
   functionName: 'getProductsList',
   entry: 'source/lambda_handlers/getProductsList.ts',
 });
 
+// Create `getProductsById` lambda
 const getProductsById = new NodejsFunction(stack, 'GetProductsByIdLambda', {
   ...sharedLambdaProps,
   functionName: 'getProductsById',
   entry: 'source/lambda_handlers/getProductsById.ts',
 });
 
+// Create `createProduct` lambda
 const createProduct = new NodejsFunction(stack, 'CreateProductLambda', {
   ...sharedLambdaProps,
   functionName: 'createProduct',
   entry: 'source/lambda_handlers/createProduct.ts',
 });
 
+// API config
 const api = new apiGateway.HttpApi(stack, 'ProductApi', {
   corsPreflight: {
     allowHeaders: ['*'],
@@ -86,3 +96,56 @@ api.addRoutes({
   path: '/products',
   methods: [apiGateway.HttpMethod.POST],
 });
+
+// Create SQS `catalogItemsQueue` queue
+// NB: its a Standard queue, not FIFO (goes by default)
+const queue = new sqs.Queue(stack, 'CatalogItemsQueue', {
+  queueName: 'catalogItemsQueue',
+  retentionPeriod: cdk.Duration.hours(1),
+  receiveMessageWaitTime: cdk.Duration.seconds(10), // Long Polling
+  visibilityTimeout: cdk.Duration.seconds(30),
+});
+
+// Create SNS `createProductTopic` topic
+const topic = new sns.Topic(stack, 'CreateProductTopic', {
+  topicName: 'createProductTopic',
+});
+
+// Add a subscriber (-filter)
+topic.addSubscription(new subs.EmailSubscription(process.env.SNSEMAIL!));
+
+// Add a subscriber (+ filter)
+topic.addSubscription(new subs.EmailSubscription(process.env.SNSEMAILPRIORITY!, {
+  filterPolicy: {
+    price: sns.SubscriptionFilter.numericFilter({ greaterThan: 500 }),
+  },
+}));
+
+// Create `catalogBatchProcess` lambda function
+const catalogBatchProcess = new NodejsFunction(stack, 'CatalogBatchProcessLambda', {
+  ...sharedLambdaProps,
+  functionName: 'catalogBatchProcess',
+  entry: 'source/lambda_handlers/catalogBatchProcess.ts',
+});
+
+// Set event source for `catalogBatchProcess` lambda function
+// NB: batchSize parameter is set to 5
+const SQSBatchReady = new lambdaEventSources.SqsEventSource(queue, {
+  batchSize: 5,
+  reportBatchItemFailures: false,
+});
+catalogBatchProcess.addEventSource(SQSBatchReady);
+
+// Set permissions for `catalogBatchProcess` lambda function:
+// Receive messages from SQS, Publish topics in SNS
+const catalogBatchProcessPerms = new iam.PolicyStatement({
+  effect: iam.Effect.ALLOW,
+  actions: [
+    'sqs:ReceiveMessage',
+    'sqs:DeleteMessage',
+    'sqs:GetQueueAttributes',
+    'sns:Publish',
+  ],
+  resources: [queue.queueArn, topic.topicArn],
+});
+catalogBatchProcess.role?.addToPrincipalPolicy(catalogBatchProcessPerms);
