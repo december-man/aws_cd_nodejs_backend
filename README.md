@@ -32,7 +32,7 @@
 
 ### Link to FE: https://github.com/december-man/nodejs-aws-shop-react/
 
- FE on cloudfront: https://d172ijz47ga3e3.cloudfront.net/
+ FE on cloudfront: https://d1kybbg0rzdlcc.cloudfront.net
 
 ### SWAGGER: 
 
