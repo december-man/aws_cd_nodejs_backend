@@ -38,7 +38,7 @@ export const handler = async (event: S3Event) => {
         Key: key
     };
     const deleteObjectCommand = new DeleteObjectCommand(delParams);
-  
+
     try {
         // GetObject as ReadableStream
         const response = await client.send(getObjectCommand);
