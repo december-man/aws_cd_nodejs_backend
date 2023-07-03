@@ -16,7 +16,7 @@ const sharedLambdaProps = {
   runtime: lambda.Runtime.NODEJS_18_X,
   environment: {
     PRODUCT_AWS_REGION: process.env.AWS_REGION!,
-    DECEMBER_MAN: process.env.DECEMBER_MAN!,
+    USER_PASSWORD: process.env.USER_PASSWORD!,
   },
 };
 
