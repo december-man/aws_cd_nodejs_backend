@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS cart_items (
 CREATE TABLE IF NOT EXISTS orders (
 	id uuid NOT NULL DEFAULT uuid_generate_v4(),
 	cart_id uuid NOT NULL,
+	user_id uuid,
 	payment JSON,
 	delivery JSON,
 	"comments" VARCHAR(1000),
