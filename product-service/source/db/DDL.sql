@@ -33,11 +33,11 @@ CREATE OR REPLACE VIEW items AS
 	
 	
 -- Task 8
-
+	
 CREATE TABLE IF NOT EXISTS users (
 	id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
 	"name" VARCHAR(100) NOT NULL,
-	email VARCHAR(100) NOT NULL,
+	email VARCHAR(100),
 	"password" VARCHAR(100) NOT NULL,
 	CONSTRAINT email_check CHECK (email ~* '^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$')
 );
@@ -78,10 +78,25 @@ CREATE TABLE IF NOT EXISTS orders (
 CREATE OR REPLACE FUNCTION last_updated() RETURNS TRIGGER
 AS $update_trigger$
 BEGIN
-	NEW.updated_at = NOW(); -- NEW is a to-be-inserted row
-	RETURN NEW; -- this function returns it updated with a new value for last_updated column.
+	UPDATE carts 
+	SET updated_at = NOW()
+	WHERE id = NEW.cart_id; -- NEW is a to-be-inserted row
+	RETURN NEW; -- this function returns it updated with a new value for updated_at column.
 END $update_trigger$ LANGUAGE plpgsql;
 
-DROP TRIGGER IF EXISTS last_updated ON carts; -- debugging/reusability
+DROP TRIGGER IF EXISTS last_updated ON cart_items; -- debugging/reusability
 CREATE TRIGGER last_updated 
-BEFORE UPDATE OR INSERT ON carts FOR EACH ROW EXECUTE PROCEDURE last_updated(); -- self-explanatory
+BEFORE UPDATE OR INSERT ON cart_items FOR EACH ROW EXECUTE PROCEDURE last_updated();
+
+
+-- Create snapshot table of cart & items & products jointable
+
+DROP TABLE IF EXISTS carts_full;
+
+CREATE TABLE IF NOT EXISTS carts_full AS (
+	SELECT c.*, ci.product_id, p.title, p.description, p.price, ci.count  
+	FROM carts c
+	INNER JOIN cart_items ci ON c.id = ci.cart_id
+	INNER JOIN products p ON p.id = ci.product_id
+);
+
