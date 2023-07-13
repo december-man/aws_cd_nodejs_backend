@@ -17,4 +17,5 @@ CREATE ROLE your_role LOGIN PASSWORD 'XXXXXXXXXXXXX' INHERIT; -- create your own
 GRANT creator TO your_role; 
 GRANT CONNECT ON DATABASE postgres TO your_role;
 
+SELECT * FROM pg_stat_activity;
 
