@@ -22,7 +22,7 @@
 
 ### Import Service API: https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com
 
- /import/{name}: 
+ /import/{name} (with authorization): 
  
  https://4ztu7mt9g3.execute-api.eu-central-1.amazonaws.com/import/
 
@@ -32,7 +32,7 @@
 
 ### Link to FE: https://github.com/december-man/nodejs-aws-shop-react/
 
- FE on cloudfront: https://d172ijz47ga3e3.cloudfront.net/
+ FE on cloudfront: https://d1kybbg0rzdlcc.cloudfront.net
 
 ### SWAGGER: 
 

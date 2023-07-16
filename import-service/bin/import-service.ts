@@ -6,6 +6,7 @@ import * as sqs from "aws-cdk-lib/aws-sqs";
 import * as s3notifications from 'aws-cdk-lib/aws-s3-notifications'
 import * as apiGateway from "@aws-cdk/aws-apigatewayv2-alpha";
 import { HttpLambdaIntegration } from '@aws-cdk/aws-apigatewayv2-integrations-alpha';
+import { HttpLambdaAuthorizer, HttpLambdaResponseType } from '@aws-cdk/aws-apigatewayv2-authorizers-alpha';
 import { NodejsFunction, NodejsFunctionProps } from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
@@ -18,13 +19,15 @@ const stack = new cdk.Stack(app, 'ImportServiceStack', {
   env: { region : process.env.AWS_REGION! },
 });
 
-const sharedLambdaProps = {
+// Common .env variables among lambdas
+const sharedLambdaProps: Partial<NodejsFunctionProps> = {
   runtime: lambda.Runtime.NODEJS_18_X,
   environment: {
     PRODUCT_AWS_REGION: process.env.AWS_REGION!,
     IMPORT_BUCKET: process.env.IMPORT_BUCKET!,
     IMPORT_BUCKET_NAME: process.env.IMPORT_BUCKET_NAME!,
     QUEUE_URL: process.env.QUEUE_URL!,
+    LAMBDA_AUTH_ARN: process.env.LAMBDA_AUTH_ARN!,
   },
 };
 
@@ -32,7 +35,6 @@ const sharedLambdaProps = {
 const bucket = s3.Bucket.fromBucketArn(stack, 'ImportBucket', process.env.IMPORT_BUCKET!);
 
 // Create `importPrudctsFile` lambda
-
 const importProductsFile = new NodejsFunction(stack, 'importProductsFileLambda', {
   ...sharedLambdaProps,
   functionName: 'importProductsFile',
@@ -43,6 +45,15 @@ const importProductsFile = new NodejsFunction(stack, 'importProductsFileLambda',
 bucket.grantReadWrite(importProductsFile);
 
 // API config
+
+// Reference existing Basic Authentication Authorizer Lambda from AuthServiceStack
+const basicAuthorizerLambda = lambda.Function.fromFunctionArn(stack, 'basicAuthorizerFunc', process.env.LAMBDA_AUTH_ARN!);
+
+// Building Lambda Authorizer from existing Lambda function
+const authorizer = new HttpLambdaAuthorizer('basicAuthorizer', basicAuthorizerLambda, {
+  responseTypes: [HttpLambdaResponseType.IAM],
+});
+
 const api = new apiGateway.HttpApi(stack, 'ImportApi', {
   corsPreflight: {
     allowHeaders: ['*'],
@@ -55,6 +66,7 @@ api.addRoutes({
   integration: new HttpLambdaIntegration('importProductsFileIntegration', importProductsFile),
   path: '/import/{name}',
   methods: [apiGateway.HttpMethod.GET],
+  authorizer,
 });
 
 // Create `importFileParser` lambda
