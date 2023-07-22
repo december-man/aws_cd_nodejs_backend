@@ -2,14 +2,26 @@ const axios = require('axios').default;
 const express = require('express');
 const path = require('path');
 require('dotenv').config();
+const NodeCache = require('node-cache');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+// Set cache refresh time to 2 minutes
+const cache = new NodeCache({ stdTTL: 120 });
 
 app.use(express.json());
 
-app.all('/*', (req, res) => {
+// check for cache in case of GET /products request
+app.get('/products', (req, res, next) => {
+  const cachedProducts = cache.get(req.originalUrl);
+  if (cachedProducts) {
+    console.log('Returning cached products')
+    return res.send(cachedProducts);
+  }
+  next();
+});
 
+app.all('/*', (req, res) => {
   //console.log('origURL'. req.originalUrl);
   console.log('method', req.method);
   console.log('body', req.body);
@@ -36,6 +48,11 @@ app.all('/*', (req, res) => {
     .then(function (response) {
       console.log('recipient response', response.data);
       res.json(response.data);
+      // cache response for GET /products request
+      if (req.method == 'GET' && recipient == 'products') {
+        cache.set(req.originalUrl, response.data)
+        console.log('Caching products')
+      };
     })
     .catch(error =>{
       console.log('ERROR:', JSON.stringify(error));
