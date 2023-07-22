@@ -1,0 +1,31 @@
+# *.js
+!jest.config.js
+*.d.ts
+.env
+*.env
+*.env.eb
+node_modules
+*.config
+package-lock.json
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+.ebextensions/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+# Tests
+/coverage
+/.nyc_output
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
