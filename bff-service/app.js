@@ -13,7 +13,8 @@ app.all('/*', (req, res) => {
   //console.log('origURL'. req.originalUrl);
   console.log('method', req.method);
   console.log('body', req.body);
-
+  console.log('Auth', req.headers.authorization);
+  const token = req.headers.authorization;
   const recipient = req.originalUrl.split('/')[1];
   console.log('Recipient:', recipient);
   
@@ -25,7 +26,7 @@ app.all('/*', (req, res) => {
       url: `${recipientURL}${req.originalUrl}`,
       ...(Object.keys(req.body || {}).length > 0 && {data: req.body}),
       headers: {
-        'Authorization': 'Basic ' + process.env.TOKEN,
+        'Authorization': token,
       }
     };
     
